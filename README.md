@@ -36,5 +36,14 @@ exit;
 mysql -u username -p management < path/to/managemen.sql
 
 ```
+Install composer for generating pdf 
+```bash
+composer require dompdf/dompdf:^3.1
+```
+
+
+
+
+
 
 
