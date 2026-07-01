@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin</title>
+
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="icon" type="image/png" href="assets/AT-pro-logo.png"/>
+
+	<!-- Import lib -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome-free/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<!-- End import lib -->
+
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body class="overlay-scrollbar">
+<div id="modernConfirm" class="confirm-overlay">
+    <div class="confirm-box">
+        <h3 id="cf-title">Kwemeza</h3>
+        <p id="cf-message"></p>
+
+        <div class="cf-buttons">
+            <button id="cf-no" class="btn-no">Oya</button>
+            <button id="cf-yes" class="btn-yes">Yego</button>
+        </div>
+    </div>
+</div>
+
+	<div class="navbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link">
+					<i class="fas fa-bars" onclick="collapseSidebar()"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<img src="assets/penguin.png" alt="2m_logo" class="logo logo-light">
+				<img src="assets/penguin.png" alt="2m_logo" class="logo logo-dark">
+			</li>
+		</ul>
+		<form class="navbar-search">
+			<input type="text" name="Search" class="navbar-search-input" placeholder="What you looking for...">
+			<i class="fas fa-search"></i>
+		</form>
+		<!-- end form -->
+		<!-- nav right -->
+		<ul class="navbar-nav nav-right">
+			<li class="nav-item mode">
+				<a class="nav-link" href="#" onclick="switchTheme()">
+					<i class="fas fa-moon dark-icon"></i>
+					<i class="fas fa-sun light-icon"></i>
+				</a>
+			</li>
+			<li class="nav-item avt-wrapper">
+				<div class="avt dropdown">
+					<img src="assets/2m.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+					<ul id="user-menu" class="dropdown-menu">
+						<li class="dropdown-menu-item">
+							<a href="set.html" class="dropdown-menu-link">
+								<div>
+									<i class="fas fa-cog"></i>
+								</div>
+								<span>Imikorere</span>
+							</a>
+						</li>
+						<li  class="dropdown-menu-item">
+							<a href="control.html" class="dropdown-menu-link">
+								<div>
+									<i class="far fa-credit-card"></i>
+								</div>
+								<span>Departma</span>
+							</a>
+						</li>
+				
+						<li  class="dropdown-menu-item">
+							<a id='logout' href="#" class="dropdown-menu-link">
+								<div >
+									<i class="fas fa-sign-out-alt"></i>
+								</div>
+								<span >Gusohoka</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!-- end nav right -->
+	</div>
+		<div class="sidebar">
+		<ul class="sidebar-nav">
+			<li class="sidebar-nav-item">
+				<a class="sidebar-nav-link">
+					<div>
+						<i class="fas fa-tachometer-alt"></i>
+					</div>
+					<span>
+					IYUMVIRE LTD
+					</span>
+				</a>
+			</li>
+			<li class="sidebar-nav-item">
+				<a href="admin.html" class="sidebar-nav-link active">
+					<div>
+						<i class="fab fa-accusoft"></i>
+					</div>
+					<span>Amakuru</span>
+				</a>
+			</li>
+			<li  class="sidebar-nav-item">
+				<a href="tables.html" class="sidebar-nav-link">
+					<div>
+						<i class="fas fa-tasks"></i>
+					</div>
+					<span>Abakozi</span>
+				</a>
+			</li>
+			<li  class="sidebar-nav-item">
+				<a href="unpaid.html" class="sidebar-nav-link">
+					<div>
+						<i class="fas fa-check-circle"></i>
+					</div>
+				<span>Amakuru Buri Kiciro</span>
+				</a>
+			</li>
+			<li  class="sidebar-nav-item">
+				<a href="record.html" class="sidebar-nav-link">
+					<div>
+						<i class="fas fa-book-open"></i>
+					</div>
+					<span>Kwinjiza Abakozi</span>
+				</a>
+			</li>
+			<li  class="sidebar-nav-item">
+				<a href="abaje.html" class="sidebar-nav-link">
+					<div>
+						<i class="fab fa-algolia"></i>
+					</div>
+					<span>Abaje Gukora</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="wrapper">
+	  <!-- EMPLOYEE PROFILE (EDITABLE) -->
+<div class="card" id="employee-profile">
+  <div class="card-header">
+    <h3>Umwirondoro w’Umukozi</h3>
+    <i class="fas fa-user-edit"></i>
+  </div>
+
+  <div class="card-content">
+
+    <div class="row">
+
+      <!-- PHOTO -->
+      <div class="col-4 col-m-12" style="text-align:center;">
+        <img id="emp-photo"
+             style="width:140px;height:140px;border-radius:50%;border:4px solid var(--second-bg-color);">
+
+        <!-- Edit photo -->
+
+        <h3 id="emp-name-display" style="margin-top:10px;">Tumusifu Emmanuel</h3>
+        <p id="emp-position-display" style="color:var(--second-color);">Umukozi</p>
+      </div>
+    </div>
+    <table class="profile-table">
+
+  <tr>
+    <th>Izina Rayambere</th>
+    <td><input class="edit" type="text" id="emp-name" ></td>
+  </tr>
+  <tr>
+    <th>Izina Ryakabiri</th>
+    <td><input class="edit" type="text" id="emp-name2" ></td>
+  </tr>
+
+  <tr>
+    <th>Itariki y'Amavuko</th>
+    <td><input class="edit" type="date" id="emp-dob"></td>
+  </tr>
+
+  <tr>
+    <th>Indangamuntu</th>
+    <td><input class="edit" type="text" id="emp-national-id"></td>
+  </tr>
+  <tr>
+    <th>Telephone</th>
+    <td><input class="edit" type="text" id="emp-phone" ></td>
+  </tr>
+
+  <tr>
+    <th>Email</th>
+    <td><input class="edit" type="email" id="emp-email" ></td>
+  </tr>
+
+  <tr>
+    <th>Departema</th>
+    <td><input disabled class="edit" type="text" id="emp-department" ></td>
+  </tr>
+  <tr>
+    <th>Iminsi Yitabiriye</th>
+    <td><input disabled class="edit" type="text" id="emp-attend" ></td>
+  </tr>
+  <tr>
+    <th>Aho Avuka</th>
+    <td><input class="edit" type="text" id="emp-location"></td>
+  </tr>
+
+  <tr>
+    <th>Igihe Yatangiye</th>
+    <td><input disabled type="text" id="emp-start"></td>
+  </tr>
+
+  <tr>
+    <th>Umushahara</th>
+    <td><input disabled class="edit" type="text" id="emp-salary"></td>
+  </tr>
+
+  <tr>
+    <th>Ibihano</th>
+    <td><input class="edit" type="text" id="emp-commitment"></td>
+  </tr>
+
+  <tr>
+    <th>Gusobanura Igihano</th>
+    <td>
+      <textarea class="edit" id="p-description" rows="4" 
+                style="width:100%;background:var(--second-bg-color);color:var(--main-color);border:1px solid var(--second-color);border-radius:5px;">
+      </textarea>
+    </td>
+  </tr>
+
+</table>
+    <hr>
+
+    <!-- ACTION BUTTONS -->
+    <div style="text-align:right;">
+      <button class="btn-save" onclick="saveClicked()">Bika Impinduka</button>
+     <button class="btn-cancel" onclick="DeleteClicked()">Gusiba</button>
+  <button class="btn-pay" onclick="payClicked()">Kwishura</button>
+<button class="btn-attend" onclick="attendClicked()">Yitabiriye</button>
+<button class="btn-amateka" onclick="historyClicked()">Amateka</button>
+    </div>
+  </div>
+</div>
+
+	</div>
+   <script src="js/session.js"></script>
+	<script src="js/profile.js"></script>
+	<script src="js/theme.js"></script>
+</body>
+</html>
