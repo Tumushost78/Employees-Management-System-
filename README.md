@@ -1,4 +1,6 @@
 # Employees-Management-System
+change the credential to configure database
+backend/connect.php
 
 ```php
 <?php
@@ -26,4 +28,15 @@ try{
 }
 ?>
 ```
+create database called management
+```sql
+create schema management;
+use  management;
+exit;
+mysql -u username -p management < path/to/backup_file.sql
+
+
+
+```
+
 
