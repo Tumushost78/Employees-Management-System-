@@ -33,9 +33,7 @@ create database called management
 create schema management;
 use  management;
 exit;
-mysql -u username -p management < path/to/backup_file.sql
-
-
+mysql -u username -p management < path/to/managemen.sql
 
 ```
 
