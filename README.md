@@ -1,7 +1,7 @@
 # Employees-Management-System
 default credentails
-username: umuhungu
-password:umuhungu
+username: umuhungu <br>
+password:umuhungu <br>
 ![image](https://github.com/Tumushost78/Employees-Management-System-/blob/main/Screenshot_2026-07-01_15_28_42.png)
 ![image](https://github.com/Tumushost78/Employees-Management-System-/blob/main/Screenshot_2026-07-01_15_29_00.png)
 change the credential to configure database
